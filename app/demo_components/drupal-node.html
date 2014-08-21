@@ -1,0 +1,34 @@
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+<polymer-element name="drupal-node" attributes="nid">
+    <template>
+        <core-ajax url="http://d8.local:8083/node/{{id}}"
+                   headers='{"Accept":"application/hal+json"}'
+                   handleAs="json"
+                   on-core-response="{{handleResponse}}"
+                   auto
+                >
+        </core-ajax>
+        <h1>{{title}}</h1>
+
+        <div class="node-content" >
+            {{body}}
+        </div>
+    </template>
+    <script>
+        Polymer('drupal-node', {
+            /**
+             * Establish fields / default values
+             */
+            nid: 1,
+            publish: {
+                title: "I am an unworking title, fix me",
+                body: "I am an unworking body, fix me"
+            },
+            handleResponse: function (event, response) {
+                console.log(response);
+                this.title = response.response.title[0].value;
+                this.body = response.response.body[0].value;
+            }
+        });
+    </script>
+</polymer-element>

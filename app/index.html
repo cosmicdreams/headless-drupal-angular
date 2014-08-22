@@ -38,10 +38,9 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h1>{{ node.title[0].value }}</h1>
+        <!-- This is where the web component is used -->
+        <drupal-node nid="1"></drupal-node>
 
-        <div class="node-content" >
-        </div>
         <div id="node-to-load">
             Show me node #<input type="number" value="0" min="1" />
         </div>

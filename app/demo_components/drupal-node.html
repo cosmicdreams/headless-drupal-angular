@@ -1,7 +1,7 @@
 <link rel="import" href="../bower_components/core-ajax/core-ajax.html">
 <polymer-element name="drupal-node" attributes="nid">
     <template>
-        <core-ajax url="http://d8.local:8083/node/{{id}}"
+        <core-ajax url="{{base_url}}/node/{{id}}"
                    headers='{"Accept":"application/hal+json"}'
                    handleAs="json"
                    on-core-response="{{handleResponse}}"
@@ -19,8 +19,10 @@
             /**
              * Establish fields / default values
              */
+
             nid: 1,
             publish: {
+                base_url: "http://dev-headless-drupal-8.gotpantheon.com",
                 title: "Wait for it...",
                 body: "Wait for it..."
             },

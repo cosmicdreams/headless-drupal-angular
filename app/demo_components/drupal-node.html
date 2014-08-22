@@ -1,7 +1,7 @@
 <link rel="import" href="../bower_components/core-ajax/core-ajax.html">
 <polymer-element name="drupal-node" attributes="nid">
     <template>
-        <core-ajax url="{{base_url}}/node/{{id}}"
+        <core-ajax url="{{base_url}}/node/{{nid}}"
                    headers='{"Accept":"application/hal+json"}'
                    handleAs="json"
                    on-core-response="{{handleResponse}}"
